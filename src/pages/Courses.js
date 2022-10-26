@@ -1,10 +1,15 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap'
+import LeftAsideNav from '../components/LeftAsideNav';
 
 const Courses = () => {
     return (
-        <div>
-            courses
-        </div>
+        <Container>
+            <Row>
+                <Col lg='3'><LeftAsideNav/></Col>
+                <Col lg='9'></Col>
+            </Row>
+        </Container>
     );
 };
 
