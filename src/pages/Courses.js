@@ -1,13 +1,18 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import LeftAsideNav from '../components/LeftAsideNav';
+import RightContentCard from '../components/RightContentCard';
 
 const Courses = () => {
     return (
         <Container>
             <Row>
-                <Col lg='3'><LeftAsideNav/></Col>
-                <Col lg='9'></Col>
+                <Col md='2'><LeftAsideNav /></Col>
+                <Col md='10'>
+                    <Row>
+                        <RightContentCard/>
+                    </Row>
+                </Col>
             </Row>
         </Container>
     );

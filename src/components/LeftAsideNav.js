@@ -15,21 +15,18 @@ const LeftAsideNav = () => {
     }, [])
     return (
         <div className='my-5'>
-            <h5 className='mb-4 text-center'>Our Courses</h5>
+            <h5 className='mb-4'>All Courses</h5>
             {
                 courses.map(course => {
                     return (
-                        <>
-                            <Link
-                                key={course.id}
-                                to={`/courses/${course.id}`}
-                                className='d-block mb-2'
+                        <Link
+                            key={course.id}
+                            to={`/courses/${course.id}`}
+                            className='d-block mb-2 text-muted text-decoration-none'
 
-                            >
-                                <Button variant="outline-info" className='w-100'>{course.name}</Button>
-                            </Link>
-                        </>
-
+                        >
+                            {course.name}
+                        </Link>
                     )
                 })
             }
