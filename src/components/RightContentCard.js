@@ -15,11 +15,11 @@ const RightContentCard = () => {
     }, [])
     return (
         <>
-            <h1 className='mb-5 mt-5 text-center'>Our Courses</h1>
+            <h1 className='mb-5 text-center'>Our Courses</h1>
             {
                 courses.map(course => {
                     return (
-                        <Col lg='4' md='6' className='mb-5'>
+                        <Col key={course.id} lg='4' md='6' className='mb-5'>
                             <Card className='border-0 shadow'>
                                 <Card.Img variant="top" src={course.thumbnail_img} height={200} />
                                 <Card.Body>

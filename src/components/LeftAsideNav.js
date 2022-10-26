@@ -14,7 +14,7 @@ const LeftAsideNav = () => {
             .catch(error => console.error('error:', error))
     }, [])
     return (
-        <div className='my-5'>
+        <>
             <h5 className='mb-4'>All Courses</h5>
             {
                 courses.map(course => {
@@ -30,7 +30,7 @@ const LeftAsideNav = () => {
                     )
                 })
             }
-        </div>
+        </>
     );
 };
 

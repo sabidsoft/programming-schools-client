@@ -6,7 +6,7 @@ import RightContentCard from '../components/RightContentCard';
 const Courses = () => {
     return (
         <Container>
-            <Row>
+            <Row className='py-5'>
                 <Col md='2'><LeftAsideNav /></Col>
                 <Col md='10'>
                     <Row>
