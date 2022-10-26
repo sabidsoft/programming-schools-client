@@ -1,11 +1,24 @@
 import React from 'react';
-import { Container, Nav, Navbar, Image } from 'react-bootstrap';
+import { Container, Nav, Navbar, Image, Button } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import { CiDark, CiLight } from 'react-icons/ci';
 import logo from '../assets/images/logo.png'
+import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const Header = () => {
+    const [dark, setDark] = useState(false)
+    const { user, logout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logout()
+            .then(() => console.log('Logout successfull'))
+            .catch(err => console.error('error:', err))
+    }
+
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="dalightrk" className='bg-warning' sticky='top'>
             <Container>
                 <Navbar.Brand className='d-flex align-items-center'>
                     <Link to='/' className='me-2'>
@@ -19,17 +32,46 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link><NavLink to='/' className='me-lg-4 text-decoration-none text-muted fw-semibold'>Home</NavLink></Nav.Link>
-                        <Nav.Link><NavLink to='/courses' className='me-lg-4 text-decoration-none text-muted fw-semibold'>Courses</NavLink></Nav.Link>
-                        <Nav.Link><NavLink to='/blog' className='me-lg-4 text-decoration-none text-muted fw-semibold'>Blog</NavLink></Nav.Link>
-                        <Nav.Link><NavLink to='/faq' className='me-lg-4 text-decoration-none text-muted fw-semibold'>FAQ</NavLink></Nav.Link>
+                        <NavLink to='/' className='mb-3 mb-lg-0 me-lg-4 mt-3 mt-lg-0 text-decoration-none text-muted fw-semibold'>Home</NavLink>
+                        <NavLink to='/courses' className='mb-3 mb-lg-0 me-lg-4 text-decoration-none text-muted fw-semibold'>Courses</NavLink>
+                        <NavLink to='/blog' className='mb-3 mb-lg-0 me-lg-4 text-decoration-none text-muted fw-semibold'>Blog</NavLink>
+                        <NavLink to='/faq' className='mb-3 mb-lg-0 me-lg-4 text-decoration-none text-muted fw-semibold'>FAQ</NavLink>
+                        <Button variant="link" onClick={() => setDark(!dark)} className='d-flex align-items-center me-lg-4 text-decoration-none text-muted fw-semibold p-0 mb-2 mb-lg-0'>
+                            {
+                                dark ? (
+                                    <>
+                                        <span className='me-1'>Dark</span>
+                                        <CiDark size={20} />
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className='me-1'>Light</span>
+                                        <CiLight size={20} />
+                                    </>
+                                )
+                            }
+                        </Button>
 
                     </Nav>
-                    <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
-                        </Nav.Link>
+                    <Nav className='d-flex align-items-center'>
+                        {
+                            user?.uid ? (
+                                <>
+                                    <Image
+                                        src={user?.photoURL}
+                                        width={30}
+                                        height={30}
+                                        roundedCircle
+                                        title={user?.displayName}
+                                    />
+                                    <Button onClick={handleLogout} variant="link" className='ms-lg-2 text-decoration-none text-muted fw-semibold'>Logout</Button>
+                                </>
+                            ) : (
+                                <Link to='/login' className='d-flex align-items-center me-lg-4 text-decoration-none text-muted fw-semibold'>
+                                    login
+                                </Link>
+                            )
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
