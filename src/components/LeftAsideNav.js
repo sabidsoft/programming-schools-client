@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 const LeftAsideNav = () => {
@@ -23,7 +22,6 @@ const LeftAsideNav = () => {
                             key={course.id}
                             to={`/courses/${course.id}`}
                             className='d-block mb-2 text-muted text-decoration-none'
-
                         >
                             {course.name}
                         </Link>
