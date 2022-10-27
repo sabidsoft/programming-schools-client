@@ -5,7 +5,6 @@ import { Container, Row, Col, Image, } from 'react-bootstrap';
 
 const Course = () => {
     const course = useLoaderData()
-    console.log(course)
     return (
         <Container className='mt-5'>
             <Row>
@@ -16,7 +15,7 @@ const Course = () => {
                         className='w-100 mb-4'
                     />
                     <p style={{ textAlign: 'justify' }} className='mb-4'>{course.details}</p>
-                    <Link to={`/courses/premium/${course._id}`}>
+                    <Link to={`/checkout/${course._id}`}>
                         <Button variant="outline-info" className='px-5 rounded-pill'>Get premium access</Button>
                     </Link>
                 </Col>

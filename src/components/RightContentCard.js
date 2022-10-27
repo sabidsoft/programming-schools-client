@@ -24,10 +24,12 @@ const RightContentCard = () => {
                                 <Card.Img variant="top" src={course.thumbnail_img} height={200} />
                                 <Card.Body>
                                     <Card.Title className='mb-3'>{course.name}</Card.Title>
-                                    <Card.Text className='mb-4 ' style={{ textAlign: 'justify'}}>
+                                    <Card.Text className='mb-4 ' style={{ textAlign: 'justify' }}>
                                         {course.title}
                                     </Card.Text>
-                                    <Button variant="outline-info">Details</Button>
+                                    <Link to={`/courses/${course.id}`}>
+                                        <Button variant="outline-info">Details</Button>
+                                    </Link>
                                 </Card.Body>
                             </Card>
                         </Col>

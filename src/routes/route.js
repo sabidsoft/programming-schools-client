@@ -7,7 +7,7 @@ import Error from '../pages/Error'
 import Faq from '../pages/Faq'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
-import Premium from '../pages/Premium'
+import Checkout from '../pages/Checkout'
 import Register from '../pages/Register'
 
 export const router = createBrowserRouter([
@@ -38,9 +38,9 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {
-                path: '/courses/premium/:id',
-                element: <Premium/>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/premium/${params.id}`)
+                path: '/checkout/:id',
+                element: <Checkout/>,
+                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
             },
             {
                 path: '/blog',
