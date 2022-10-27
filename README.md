@@ -1,6 +1,6 @@
 # Programming Schools
 
-Live site link: [https://programming-schools.firebaseapp.com/](https://programming-quiz-sabid.netlify.app/).
+Live site link: [https://programming-schools.firebaseapp.com/](https://programming-schools.firebaseapp.com/)
 
 ## Features and Functionality
 * Intuitive design and user experience.
