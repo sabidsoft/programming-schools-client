@@ -1,6 +1,6 @@
 # Programming Schools
 
-Live site link: [https://programming-schools.firebaseapp.com/](https://programming-schools.firebaseapp.com/)
+Live site link: [https://programming-schools.web.app/](https://programming-schools.web.app/)
 
 ## Features and Functionality
 * Intuitive design and user experience.
