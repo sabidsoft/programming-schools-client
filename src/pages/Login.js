@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
@@ -11,13 +11,16 @@ import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 const Login = () => {
     const [error, setError] = useState('')
     const { login, googleSignIn, githubSignIn } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
     const googleAuthProvider = new GoogleAuthProvider()
     const githubAuthProvider = new GithubAuthProvider()
 
     const handleGoogleSignIn = () => {
         googleSignIn(googleAuthProvider)
             .then(result => {
-                console.log('Login successful')
+                // console.log('Login successful')
+                navigate(location.state?.pathname || '/', { replace: true })
             })
             .catch(error => {
                 console.error('error:', error.code)
@@ -30,7 +33,8 @@ const Login = () => {
     const handleGithubSignIn = () => {
         githubSignIn(githubAuthProvider)
             .then(result => {
-                console.log('Login successful')
+                // console.log('Login successful')
+                navigate(location.state?.pathname || '/', { replace: true })
             })
             .catch(error => {
                 console.error('error:', error.code)
@@ -48,7 +52,9 @@ const Login = () => {
 
         login(email, password)
             .then(result => {
-                console.log('Login successful')
+                // console.log('Login successful')
+                navigate(location.state?.pathname || '/', { replace: true })
+                setError('')
                 event.target.reset()
             })
             .catch(error => {

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FcGoogle } from 'react-icons/fc';
-import { BsGithub } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
@@ -9,7 +7,8 @@ import { useState } from 'react';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const { register, updateUserProfile } = useContext(AuthContext)
+    const { register, updateUserProfile, setLoading } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleOnSubmit = event => {
         event.preventDefault()
@@ -31,13 +30,19 @@ const Register = () => {
         register(email, password)
             .then(result => {
                 console.log('user created')
-                handleUpdateUserProfile()
+                setError('')
                 event.target.reset()
+                navigate('/')
+                setLoading(false)
+                handleUpdateUserProfile()
             })
             .catch(error => {
                 console.error('error:', error.code)
                 if(error.code === 'auth/weak-password'){
                     setError('Password must be 6 characters or more!')
+                }
+                if(error.code === 'auth/email-already-in-use'){
+                    setError('The email already in use!')
                 }
             })
     }
@@ -87,7 +92,7 @@ const Register = () => {
                             {
                                 error && <p className='text-center text-danger'>{error}</p>
                             }
-                            <Button variant="info" type="submit" className='w-100 text-white mb-3'>
+                            <Button variant="info" type="submit" className='w-100 text-white mb-4'>
                                 Register
                             </Button>
                             <p className='text-center m-0'>Have an account? <Link to='/login' className='text-info'>Login now</Link></p>
