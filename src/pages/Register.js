@@ -7,9 +7,10 @@ import { useState } from 'react';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const { register, updateUserProfile, setLoading } = useContext(AuthContext)
+    const { register, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate()
 
+    // handle onsubmit
     const handleOnSubmit = event => {
         event.preventDefault()
         const name = event.target.name.value
@@ -17,35 +18,34 @@ const Register = () => {
         const email = event.target.email.value
         const password = event.target.password.value
 
-        const handleUpdateUserProfile = () => {
-            updateUserProfile({ displayName: name, photoURL: photourl })
-                .then(() => console.log('Profile updated'))
-                .catch(error => console.error('error:', error.code))
-        }
-
-        if(name.length < 10){
-            return setError('Your name is too short!')
+        const profile = {
+            displayName: name,
+            photoURL: photourl
         }
 
         register(email, password)
             .then(result => {
-                console.log('user created')
-                setError('')
-                event.target.reset()
+                // console.log('user created')
                 navigate('/')
-                setLoading(false)
-                handleUpdateUserProfile()
+                event.target.reset()
+
+                updateUserProfile(profile)
+                    .then(() => {})  //console.log('Profile updated')
+                    .catch(error => console.error('error test:', error))
+
+                setError('')
             })
             .catch(error => {
-                console.error('error:', error.code)
-                if(error.code === 'auth/weak-password'){
+
+                if (error.code === 'auth/weak-password') {
                     setError('Password must be 6 characters or more!')
                 }
-                if(error.code === 'auth/email-already-in-use'){
+                if (error.code === 'auth/email-already-in-use') {
                     setError('The email already in use!')
                 }
             })
     }
+
     return (
         <>
             <Container className='mt-5'>

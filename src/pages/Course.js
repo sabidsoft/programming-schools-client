@@ -8,6 +8,7 @@ import { FcDownload } from 'react-icons/fc'
 const Course = () => {
     const course = useLoaderData()
 
+    // pdf downlod generator
     const handlePdfDownload = () => {
         const doc = new jsPDF()
 

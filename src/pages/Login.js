@@ -16,6 +16,7 @@ const Login = () => {
     const googleAuthProvider = new GoogleAuthProvider()
     const githubAuthProvider = new GithubAuthProvider()
 
+    // handla google sign in
     const handleGoogleSignIn = () => {
         googleSignIn(googleAuthProvider)
             .then(result => {
@@ -30,6 +31,7 @@ const Login = () => {
             })
     }
 
+    // handle gtihub sign in
     const handleGithubSignIn = () => {
         githubSignIn(githubAuthProvider)
             .then(result => {
@@ -44,6 +46,7 @@ const Login = () => {
             })
     }
 
+    // handle onsubmit
     const handleOnSubmit = event => {
         event.preventDefault()
 
