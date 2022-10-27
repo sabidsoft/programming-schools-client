@@ -8,7 +8,7 @@ const Errorpage = () => {
             <h1 className='mb-4'>Oops!</h1>
             <h4 className='mb-4'>404 - PAGE NOT FOUND</h4>
             <p className='m-0'>The page you are looking for might have been removed</p>
-            <p className='mb-4'>had its name changed or is temporarily unavailable.</p>
+            <p className='mb-5'>had its name changed or is temporarily unavailable.</p>
             <Link to={'/'}>
                 <Button variant="outline-info" className='rounded-pill px-5'>Go to Home</Button>
             </Link>

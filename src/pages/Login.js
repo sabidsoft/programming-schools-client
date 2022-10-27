@@ -60,10 +60,10 @@ const Login = () => {
             .catch(error => {
                 console.error('error: ', error.code)
                 if (error.code === 'auth/wrong-password') {
-                    setError('Wrong password!')
+                    setError(`Email address or password didn't match!`)
                 }
                 if (error.code === 'auth/user-not-found') {
-                    setError('The email is not registered!')
+                    setError(`Email address or password didn't match!`)
                 }
                 if (error.code === 'auth/too-many-requests') {
                     setError('Too many request! Try later.')
@@ -108,7 +108,7 @@ const Login = () => {
                                 <div className='line'></div>
                             </div>
                             <Button onClick={handleGoogleSignIn} variant="outline-info" className='w-100 mb-3 text-muted'><FcGoogle size={24} className='me-2' />Sign in with Google</Button>
-                            <Button onClick={handleGithubSignIn} variant="outline-info" className='w-100 mb-3 text-muted'><BsGithub size={24} className='me-2' />Sign in with Github</Button>
+                            <Button onClick={handleGithubSignIn} variant="outline-info" className='w-100 mb-4 text-muted'><BsGithub size={24} className='me-2' />Sign in with Github</Button>
                             <p className='text-center m-0'>Don't have an account? <Link to='/register' className='text-info'>Register Now</Link></p>
                         </Form>
                     </Col>

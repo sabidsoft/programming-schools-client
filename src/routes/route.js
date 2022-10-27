@@ -8,7 +8,6 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Checkout from '../pages/Checkout'
 import Register from '../pages/Register'
-
 import Errorpage from '../pages/Errorpage'
 import PrivateRoute from '../PrivateRoute/PrivateRoute'
 
@@ -51,7 +50,7 @@ export const router = createBrowserRouter([
             {
                 path: '/faq',
                 element: <Faq/>
-            },
+            }
         ]
     }
 ])
