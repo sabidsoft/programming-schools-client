@@ -9,7 +9,7 @@ const Checkout = () => {
     const courseDetails = useLoaderData()
 
     return (
-        <Container className='my-5'>
+        <Container className='my-5 px-4'>
             <Row>
                 <Col lg='8' className='mx-auto shadow rounded p-5'>
                     <h2 className='text-center mb-3'>{`Congratulations! ${user.displayName}`}</h2>

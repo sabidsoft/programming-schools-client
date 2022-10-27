@@ -25,9 +25,9 @@ const Course = () => {
     }
 
     return (
-        <Container className='mt-5'>
+        <Container className='mt-5 px-4'>
             <Row>
-                <Col md='8' className='mx-auto rounded shadow my-5 p-5'>
+                <Col md='8' className='mx-auto rounded shadow my-5 p-4 p-lg-5 '>
                     <div className='d-flex justify-content-between align-items-center'>
                         <h3 className='m-0 mb-5'>{course.course_name} Programming Language</h3>
                         <Button onClick={handlePdfDownload} variant='outline-info'>Download PDF <FcDownload /></Button>

@@ -48,7 +48,7 @@ const Register = () => {
 
     return (
         <>
-            <Container className='mt-5'>
+            <Container className='mt-5 px-4'>
                 <Row>
                     <Col md='8' lg='4' className='mx-auto rounded shadow my-5 p-5'>
                         <h3 className='text-center m-0 mb-5'>Please Register</h3>

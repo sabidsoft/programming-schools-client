@@ -18,7 +18,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='bg-warning' sticky='top'>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky='top'>
             <Container>
                 <Navbar.Brand className='d-flex align-items-center'>
                     <Link to='/' className='me-2'>
@@ -27,7 +27,7 @@ const Header = () => {
                             width={30}
                         />
                     </Link>
-                    <Link to='/' className='text-decoration-none text-info me-5'>Programming Schools</Link>
+                    <Link to='/' className='text-decoration-none text-info me-lg-5'>Programming Schools</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
