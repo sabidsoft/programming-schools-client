@@ -8,7 +8,7 @@ const RightContentCard = () => {
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('https://programming-schools-server.vercel.app/courses')
             .then(res => res.json())
             .then(data => setCourses(data))
             .catch(error => console.error('error:', error))

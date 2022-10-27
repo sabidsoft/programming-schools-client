@@ -36,12 +36,12 @@ export const router = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <Course/>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://programming-schools-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout/></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader: ({ params }) => fetch(`https://programming-schools-server.vercel.app/checkout/${params.id}`)
             },
             {
                 path: '/blog',
