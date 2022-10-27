@@ -38,7 +38,7 @@ const Header = () => {
                         <NavLink to='/faq' className='mb-3 mb-lg-0 me-lg-4 text-decoration-none text-muted fw-semibold'>FAQ</NavLink>
                         <Button variant="link" onClick={() => setDark(!dark)} className='d-flex align-items-center me-lg-4 text-decoration-none text-muted fw-semibold p-0 mb-2 mb-lg-0'>
                             {
-                                dark ? (
+                                !dark ? (
                                     <>
                                         <span className='me-1'>Dark</span>
                                         <CiDark size={20} />
